@@ -275,3 +275,5 @@ const absentUsers = db.attendance.find({status: "absent", classDate: {$gt: new D
 const notSubmittedTasks = db.tasks.find({submission_date: { $gte: new Date("2020-10-15"), $lte: new Date("2020-10-31") }, submitted: false}).map(t => t.topics_id);
 
 const absentAndNotSubmitted = db.users.find({_id: { $in: absentUsers }, "tasks.topics_id": { $in: notSubmittedTasks }}).count();
+
+
